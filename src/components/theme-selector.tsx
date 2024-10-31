@@ -1,20 +1,37 @@
 import React from "react";
 import { useTheme } from "../context/theme-provider";
+import { themes } from "../themes";
 
-export const ThemeSelector: React.FC = () => {
-  const { setTheme, themeNames } = useTheme();
+interface Props {
+  triggerRipple: (
+    x: number,
+    y: number,
+    themeName: string,
+    themeColor: string,
+  ) => void;
+}
 
-  const handleChange = (event: React.ChangeEvent<HTMLSelectElement>) => {
-    setTheme(event.target.value);
+export const ThemeSelector: React.FC<Props> = ({ triggerRipple }) => {
+  const { themeNames } = useTheme();
+
+  const handleThemeChange = (themeName: string, e: React.MouseEvent) => {
+    const { clientX, clientY } = e;
+    const themeColor = themes[themeName].backgroundColor;
+
+    triggerRipple(clientX, clientY, themeName, themeColor);
   };
 
   return (
-    <select onChange={handleChange}>
+    <div className="space-x-6">
       {themeNames.map((name) => (
-        <option key={name} value={name}>
+        <button
+          key={name}
+          className=""
+          onClick={(e) => handleThemeChange(name, e)}
+        >
           {name}
-        </option>
+        </button>
       ))}
-    </select>
+    </div>
   );
 };

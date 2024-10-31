@@ -6,7 +6,7 @@ export const Terminal: React.FC = () => {
 
   return (
     <div
-      className="mt-10 min-h-[400px] border"
+      className="mx-auto mt-10 min-h-[400px] max-w-[800px] rounded border p-6"
       style={{
         backgroundColor: currentTheme.backgroundColor,
         color: currentTheme.color,

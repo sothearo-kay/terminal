@@ -8,20 +8,20 @@ export type Theme = {
 export const themes: Record<string, Theme> = {
   light: {
     name: "Sewing Tin Light",
-    backgroundColor: "#fafafa",
-    color: "#333",
-    borderColor: "#ddd",
+    backgroundColor: "#fff",
+    color: "#385eca",
+    borderColor: "#2d2076",
   },
   dark: {
     name: "Shadow",
-    backgroundColor: "#1e1e1e",
-    color: "#f1f1f1",
+    backgroundColor: "#181818",
+    color: "#eee",
     borderColor: "#444",
   },
   contrast: {
     name: "High Contrast",
     backgroundColor: "#000",
-    color: "#00ff00",
-    borderColor: "#00ff00",
+    color: "#d1ffcd",
+    borderColor: "#15ff00",
   },
 };

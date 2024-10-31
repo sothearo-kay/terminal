@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import usePersistedState from "../hooks/usePersistedState";
 import { Theme, themes } from "../themes";
 
 interface ThemeContextType {
@@ -20,7 +21,10 @@ export const useTheme = () => {
 export const ThemeProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [currentTheme, setCurrentTheme] = React.useState<Theme>(themes.light);
+  const [currentTheme, setCurrentTheme] = usePersistedState<Theme>(
+    "theme",
+    themes.dark,
+  );
 
   const setTheme = (themeName: string) => {
     const theme = themes[themeName];
