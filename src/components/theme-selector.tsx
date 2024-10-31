@@ -14,8 +14,8 @@ interface Props {
 export const ThemeSelector: React.FC<Props> = ({ triggerRipple }) => {
   const { themeNames } = useTheme();
 
-  const handleThemeChange = (themeName: string, e: React.MouseEvent) => {
-    const { clientX, clientY } = e;
+  const handleThemeChange = (themeName: string, event: React.MouseEvent) => {
+    const { clientX, clientY } = event;
     const themeColor = themes[themeName].backgroundColor;
 
     triggerRipple(clientX, clientY, themeName, themeColor);
@@ -27,7 +27,7 @@ export const ThemeSelector: React.FC<Props> = ({ triggerRipple }) => {
         <button
           key={name}
           className=""
-          onClick={(e) => handleThemeChange(name, e)}
+          onClick={(event) => handleThemeChange(name, event)}
         >
           {name}
         </button>
