@@ -31,10 +31,7 @@ const App = () => {
   return (
     <div
       className="app min-h-screen"
-      style={{
-        backgroundColor: currentTheme.backgroundColor,
-        color: currentTheme.color,
-      }}
+      style={{ backgroundColor: currentTheme.backgroundColor }}
     >
       {ripple && (
         <span
